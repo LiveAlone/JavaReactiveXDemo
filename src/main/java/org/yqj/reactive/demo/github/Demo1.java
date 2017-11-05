@@ -2,14 +2,30 @@ package org.yqj.reactive.demo.github;
 
 import io.reactivex.Observable;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author yaoqijun on 2017-11-03.
  */
 public class Demo1 {
     public static void main(String[] args) {
 
-        simpleJustMap();
+//        intervalTest();
+
+//        simpleJustMap();
+
 //        simpleJust();
+    }
+
+    private static void intervalTest(){
+
+        Observable.interval(1, TimeUnit.SECONDS).subscribe(System.out::println);
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void simpleJustMap(){
